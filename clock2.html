@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANALOG CLOCK</title>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container
+        {
+            padding: 3rem;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; 
+           
+        }
+        .analogclockdiv
+        {
+            width: 50rem;
+            height: 50rem;
+            border-radius: 50%;
+            background-color: black;
+            border: 8px solid rgb(255, 0, 0);
+            color: red;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 5rem;
+            position: relative;
+        }
+
+        span:nth-child(1)
+        {
+color: rgb(1, 253, 72);
+top: 6rem;
+right: 10rem;
+position: absolute;
+
+        }
+
+
+        span:nth-child(2)
+        {
+color: rgb(1, 253, 72);
+top: 14rem;
+right: 4rem;
+position: absolute;
+
+        }
+
+        
+        span:nth-child(3)
+        {
+color: rgb(255, 255, 255);
+top: 22rem;
+right: 2rem;
+position: absolute;
+font-size: 7rem;
+
+        }
+
+        span:nth-child(4)
+        {
+            color: rgb(1, 253, 72);
+bottom: 11rem;
+right: 6rem;
+position: absolute;
+
+        }
+        span:nth-child(5)
+        {
+color: rgb(1, 253, 72);
+bottom: 3rem;
+right: 12rem;
+position: absolute;
+
+        }
+     
+        
+        span:nth-child(6)
+        {
+            color: rgb(255, 255, 255);
+bottom: 0rem;
+right: 23rem;
+position: absolute;
+font-size: 7rem;
+
+        }
+        span:nth-child(7)
+        {
+color: rgb(1, 253, 72);
+bottom: 3rem;
+left: 12rem;
+position: absolute;
+
+        }   
+
+        span:nth-child(8)
+        {
+color: rgb(1, 253, 72);
+bottom: 11rem;
+left: 6rem;
+position: absolute;
+
+        }
+
+        span:nth-child(9)
+        {
+            color: rgb(255, 255, 255);
+top: 22rem;
+left: 2rem;
+position: absolute;
+font-size: 7rem;
+
+        }
+
+        span:nth-child(10)
+        {
+color: rgb(1, 253, 72);
+top: 14rem;
+left: 4rem;
+position: absolute;
+
+        }
+
+
+        span:nth-child(11)
+        {
+color: rgb(1, 253, 72);
+top: 6rem;
+left: 10rem;
+position: absolute;
+
+        }
+        span:nth-child(12)
+        {
+            color: rgb(255, 255, 255);
+top: 0rem;
+left: 23rem;
+position: absolute;
+font-size: 7rem;
+
+        }
+        .midpoint
+        {
+            width: 3rem;
+            height: 3rem;
+            background-color: aliceblue;
+            border-radius: 50%;
+            border: 1px solid rgb(255, 0, 0);
+            position: absolute;
+            z-index: 1;
+
+        }
+        .hrhand
+        {
+            width: 10rem;
+            height: 0.5rem;
+            background-color: rgb(250, 0, 0);
+            position: absolute;
+            border-radius: 10px;
+            transform-origin: left;
+            left: 50%;
+            
+        }
+        .minhand{
+            width: 15rem;
+            height: 0.5rem;
+            background-color: rgb(0, 229, 255);
+            position: absolute;
+            border-radius: 10px;
+            transform-origin: left;
+            left: 50%;
+    
+        }
+        .sechand
+        {
+            width: 20rem;
+            height: 0.2rem;
+            background-color: rgb(0, 229, 255);
+            position: absolute;
+            border-radius: 10px;
+            transform-origin: left;
+            left: 50%;
+    
+        }
+
+        .sechand:before
+        {
+            content: '';
+            width: 5rem;
+            height: 0.2rem;
+            background-color: rgb(0, 229, 255);
+            position: absolute;
+            border-radius: 10px;
+            transform-origin: left;
+            left: -25%;
+    
+        }
+
+
+        </style>
+</head>
+<body>
+    
+    <section class="container">
+        <div class="analogclockdiv">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+            <span>7</span>
+            <span>8</span>
+            <span>9</span>
+            <span>10</span>
+            <span>11</span>
+            <span>12</span>
+            <span class="midpoint" ></span>
+            <span class="hrhand" id="hrhand"></span>
+            <span class="minhand" id="minhand"></span>
+            <span class="sechand" id="sechand"></span>
+
+        </div>
+    </section>
+</body>
+
+<script>
+    var sechand=document.getElementById("sechand");
+    var minhand=document.getElementById("minhand");
+    var hrhand=document.getElementById("hrhand");
+var analogclockinterval=setInterval(()=>
+{
+var time=new Date();
+hrhand.style.transform=`rotate(${time.getHours()*30 + time.getMinutes()/2}d  eg)`;
+minhand.style.transform=`rotate(${time.getMinutes()*6}deg)`;
+sechand.style.transform=`rotate(${time.getSeconds()*6}deg)`;
+
+},1000)
+
+</script>
+</html>
